@@ -1,7 +1,7 @@
 import json
 import requests
 
-ApiEndpoint = "http://wryneck.cs.umanitoba.ca:3000/values"
+ApiEndpoint = "http://wryneck.cs.umanitoba.ca/api/values"
 
 def addSingleValue(apiKey, fieldId: int, value):
 	PARAMS = {
