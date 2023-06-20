@@ -3,7 +3,7 @@ import requests
 
 ApiEndpoint = "http://wryneck.cs.umanitoba.ca:3000/values"
 
-def addSingleValue(apiKey, fieldId, value):
+def addSingleValue(apiKey, fieldId: int, value):
 	PARAMS = {
 		'ApiKey':apiKey,
 		'Value':fieldId,
@@ -17,15 +17,23 @@ def addSingleValue(apiKey, fieldId, value):
 	else:
 		return False
 
-def addManyValues(apiKey, fieldId, values):
+def addManyValues(apiKey, fieldId: int, values):
 	for value in values:
+		if not isinstance(apiKey,str):
+			apiKey = str(apiKey)
+		if not isinstance(values,str):
+			values = str(values)
 		bool result = addSingleValue(apiKey, fieldId, value)
 		if !result:
 			return result
 	return True
 
 
-def getValues(apiKey, fieldId, offset, limit, order):
+def getValues(apiKey, fieldId: int, offset: int, limit: int, order):
+  if not isinstance(apiKey,str):
+      apiKey = str(apiKey)
+  if not isinstance(order,str):
+      order = str(order)
 	if order.lower() != "asc" and order.lower() != "desc":
 		print("order must be 'asc' or 'desc'. Please try again.")
 		return False
