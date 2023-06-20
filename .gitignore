@@ -29,6 +29,6 @@ backend/bin/test.db
 /.vs/4560 Project/v17/.wsuo
 /.vs/slnx.sqlite
 /.vs/VSWorkspaceState.json
+/Packages/dotnet/Trackr/.vs
 /Packages/dotnet/Trackr/obj
-/Packages/dotnet/Trackr/.vs/Trackr
 /.vs/tasks.vs.json
