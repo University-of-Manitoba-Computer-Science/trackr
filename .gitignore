@@ -31,4 +31,5 @@ backend/bin/test.db
 /.vs/VSWorkspaceState.json
 /Packages/dotnet/Trackr/.vs
 /Packages/dotnet/Trackr/obj
-/.vs/tasks.vs.json
+/Packages/python/__pycache__
+/.vs
