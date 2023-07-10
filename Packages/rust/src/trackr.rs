@@ -7,7 +7,6 @@ const API_ENDPOINT: &str = "http://wryneck.cs.umanitoba.ca/api/values";
 struct ApiResponse {
     status_code: u16,
     text: String,
-    // Add other fields as needed
 }
 
 pub struct Trackr {
@@ -87,12 +86,10 @@ struct Value {
     id: u32,
     value: String,
     created_at: String,
-    // Add other fields as needed
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 struct GetValuesResponse {
     values: Vec<Value>,
     total_values: u32,
-    // Add other fields as needed
 }
