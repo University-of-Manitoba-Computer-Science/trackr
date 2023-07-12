@@ -3,21 +3,25 @@ import requests
 
 ApiEndpoint = "http://wryneck.cs.umanitoba.ca/api/values"
 
+def ShowEndpoint():
+	return ApiEndpoint
+
 def UpdateEndpoint(url):
 	"""
 	Updates the api endpoint to be used. This function is used when hosting a local version of Trackr and therefore needs a different endpoint than the one hosted at the University of Manitoba.
 	Usage:
-        valueApi.UpdateEndpoint('someAddress/api/values')
+        Trackr.UpdateEndpoint('someAddress/api/values')
 	:param url: The url where the locally hosted version of Trackr is found.
 	:return: None
 	"""
+	global ApiEndpoint
 	ApiEndpoint = url
 
 def AddSingleValue(apiKey, fieldId: int, value):
 	"""
 	Add's a single value to the field of the project which has the apikey.
 	Usage:
-        result = valueApi.AddSingleValue('pVUYgaZgSabpgiSvjQsLsHv0nhj2wfsdG7j3k2nm7n2lynb6n3225hn234nhAQh0', 5, 4678)
+        result = Trackr.AddSingleValue('pVUYgaZgSabpgiSvjQsLsHv0nhj2wfsdG7j3k2nm7n2lynb6n3225hn234nhAQh0', 5, 4678)
         print("status code: " + str(result.status_code))
         print("content: " + result.text)
 	:param apiKey: The apiKey found in your Trackr account on the API page
@@ -44,7 +48,7 @@ def AddManyValues(apiKey, fieldId: int, values):
         "723",
         "2345"
     	]
-        result = valueApi.AddManyValues('pVUYgaZgSabpgiSvjQsLsHv0nhj2wfsdG7j3k2nm7n2lynb6n3225hn234nhAQh0', 5, myValues)
+        result = Trackr.AddManyValues('pVUYgaZgSabpgiSvjQsLsHv0nhj2wfsdG7j3k2nm7n2lynb6n3225hn234nhAQh0', 5, myValues)
         print("status code: " + str(result.status_code))
         print("content: " + result.text)
 	:param apiKey: The apiKey found in your Trackr account on the API page
@@ -65,7 +69,7 @@ def GetValues(apiKey, fieldId: int, offset: int, limit: int, order):
 	"""
 	Accepts configuration parameters which target a project which has the apiKey, to read in "limit" number of values from the field with "fieldId", starting at the "offset" value. Acceptable orders are "asc" or "desc".
 	Usage:
-		result = valueApi.GetValues('pVUYgaZgSabpgiSvjQsLsHv0nhj2wfsdG7j3k2nm7n2lynb6n3225hn234nhAQh0', 5, 3, 25, 'asc');
+		result = Trackr.GetValues('pVUYgaZgSabpgiSvjQsLsHv0nhj2wfsdG7j3k2nm7n2lynb6n3225hn234nhAQh0', 5, 3, 25, 'asc');
 		print("status code: " + str(result.status_code))
 		print("content: " + result.text) # could also use as json after importing json: dataJson = result.text.json()
 	:param apiKey: The apiKey found in your Trackr account on the API page
