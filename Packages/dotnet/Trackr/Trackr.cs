@@ -14,6 +14,8 @@ namespace Trackr
 
         /// <summary>
         /// Updates the api endpoint to be used. This function is used when hosting a local version of Trackr and therefore needs a different endpoint than the one hosted at the University of Manitoba.
+        /// Usage:
+        /// valueApi.UpdateEndpoint('someAddress/api/values')
         /// </summary>
         /// <param name="url">The url where the locally hosted version of Trackr is found.</param>
         /// <returns>None</returns>
