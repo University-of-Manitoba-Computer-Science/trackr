@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Trackr
 {
-    public class TrackrApi
+    public class Trackr
     {
 
         private static readonly HttpClient client = new HttpClient();
