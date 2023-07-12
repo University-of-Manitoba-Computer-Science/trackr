@@ -13,6 +13,15 @@ namespace Trackr
         private static string ApiEndpoint = "http://wryneck.cs.umanitoba.ca/api/values";
 
         /// <summary>
+        /// Allows the user to see the currently set endpoint
+        /// </summary>
+        /// <returns>A string which is the current endpoint</returns>
+        public static string ShowEndpoint()
+        {
+            return ApiEndpoint;
+        }
+
+        /// <summary>
         /// Updates the api endpoint to be used. This function is used when hosting a local version of Trackr and therefore needs a different endpoint than the one hosted at the University of Manitoba.
         /// Usage:
         /// valueApi.UpdateEndpoint('someAddress/api/values')

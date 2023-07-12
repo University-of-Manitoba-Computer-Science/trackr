@@ -49,9 +49,9 @@ testUpdateEndpoint(myUrl);
 static void testUpdateEndpoint(string url)
 
 {<br/><br/>
-    Console.WriteLine("Changing the endpoint");<br/>
+    Console.WriteLine("Current endpoint is: " + Trackr.Trackr.ShowEndpoint());<br/>
     Trackr.Trackr.UpdateEndpoint(url);<br/>
-    Console.WriteLine("Done changing the endpoint");<br/>
+    Console.WriteLine("New endpoint is: " + Trackr.Trackr.ShowEndpoint());<br/>
 }
 
 static async Task testManyValues(string myApiKey, uint myFieldId, List\<string> myValues)<br/>

@@ -4,13 +4,25 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>Trackr</Title>
+    <Title>UMTrackr</Title>
     <Description>Package which can be used to interact with Trackr from University of Manitoba from your own code projects. Trackr is located at: https://github.com/COMP4560/trackr</Description>
     <PackageIcon>trackr.png</PackageIcon>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/University-of-Manitoba-Computer-Science/trackr</RepositoryUrl>
+    <PackageTags>data storage; data processing; data visualization</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageId>UMTrackr</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\..\..\..\Downloads\trackr.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Readme.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
