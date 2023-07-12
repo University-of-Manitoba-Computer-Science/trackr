@@ -3,6 +3,16 @@ import requests
 
 ApiEndpoint = "http://wryneck.cs.umanitoba.ca/api/values"
 
+def UpdateEndpoint(url):
+	"""
+	Updates the api endpoint to be used. This function is used when hosting a local version of Trackr and therefore needs a different endpoint than the one hosted at the University of Manitoba.
+	Usage:
+        valueApi.UpdateEndpoint('someAddress/api/values')
+	:param url: The url where the locally hosted version of Trackr is found.
+	:return: None
+	"""
+	ApiEndpoint = url
+
 def AddSingleValue(apiKey, fieldId: int, value):
 	"""
 	Add's a single value to the field of the project which has the apikey.
