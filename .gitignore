@@ -31,3 +31,4 @@ backend/bin/test.db
 /.vs/VSWorkspaceState.json
 /Packages/dotnet/Trackr/obj
 /Packages/dotnet/Trackr/.vs/Trackr
+/.vs/tasks.vs.json
