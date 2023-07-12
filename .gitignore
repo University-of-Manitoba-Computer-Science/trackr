@@ -33,3 +33,4 @@ backend/bin/test.db
 /Packages/dotnet/Trackr/obj
 /Packages/python/Main.py
 /Packages/python/__pycache__/valueApi.cpython-311.pyc
+/.vs/tasks.vs.json
