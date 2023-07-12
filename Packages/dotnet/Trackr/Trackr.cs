@@ -7,9 +7,6 @@ using System.Threading.Tasks;
 
 namespace Trackr
 {
-
-
-
     public class Trackr
     {
         private static readonly HttpClient client = new HttpClient();
