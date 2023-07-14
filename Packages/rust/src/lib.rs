@@ -88,15 +88,21 @@ impl Trackr {
         order: &String,
     ) -> Result<GetValuesResponse, reqwest::Error> {
         let client = Client::new();
-        let params = [
-            ("apiKey", &self.api_key),
-            ("fieldId", &field_id.to_string()),
-            ("offset", &offset.to_string()),
-            ("limit", &limit.to_string()),
-            ("order", order),
-        ];
+        let url = format!(
+            "{}?apiKey={}&fieldId={}&offset={}&limit={}&order={}",
+            API_ENDPOINT,
+            self.api_key,
+            field_id,
+            offset,
+            limit,
+            order
+        );
 
-        let response = client.get(API_ENDPOINT).query(&params).send().await?;
+        let response = client
+        .get(&url)
+        .send()
+        .await?;
+
         let api_response = response.json::<GetValuesResponse>().await?;
 
         Ok(api_response)
@@ -107,11 +113,10 @@ impl Trackr {
 pub struct Value {
     pub id: u32,
     pub value: String,
-    pub created_at: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetValuesResponse {
     pub values: Vec<Value>,
-    pub total_values: u32,
+    pub totalValues: u32,
 }
