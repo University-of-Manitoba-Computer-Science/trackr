@@ -24,11 +24,7 @@ backend/bin/go_build_main_go.exe
 backend/bin/test.db
 .idea
 *.iml
-/.vs/4560 Project/FileContentIndex/513e7a44-bf48-45ca-b643-1b9d7b1f65e3.vsidx
-/.vs/4560 Project/FileContentIndex
-/.vs/4560 Project/v17/.wsuo
-/.vs/slnx.sqlite
-/.vs/VSWorkspaceState.json
+/Packages/dotnet/Trackr/.vs
 /Packages/dotnet/Trackr/obj
-/Packages/dotnet/Trackr/.vs/Trackr
-/.vs/tasks.vs.json
+/Packages/python/__pycache__
+/.vs
