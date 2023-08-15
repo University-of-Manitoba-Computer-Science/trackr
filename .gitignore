@@ -8,6 +8,7 @@ backend/backend.iml
 frontend/frontend.iml
 backend/bin/*
 backend/bin
+**/target/
 
 # history folder created by VSCode that is not needed in repo
 .history
