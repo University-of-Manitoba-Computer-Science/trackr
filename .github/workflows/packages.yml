@@ -1,0 +1,133 @@
+name: Build Packages
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+    
+jobs:
+  arduino:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Upload archive
+      uses: actions/upload-artifact@v3
+      with:
+        name: trackr-arduino
+        path: ./Packages/cpp-arduino/
+  cpp:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Packages/cpp/
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install packages
+      run: sudo apt-get install -y libcurl4-openssl-dev
+
+    - name: Build
+      run: make libs
+      
+    - name: Upload archive
+      uses: actions/upload-artifact@v3
+      with:
+        name: trackr.a
+        path: ./Packages/cpp/lib/trackr.a
+  bash:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Upload archive
+      uses: actions/upload-artifact@v3
+      with:
+        name: trackr.sh
+        path: ./Packages/bash/trackr.sh
+  dotnet:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Packages/dotnet/Trackr/
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.2.0
+
+    - name: Restore dependencies
+      run: nuget restore
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7
+
+    - name: Build
+      run: dotnet build -c Release --no-restore
+      
+    - name: Upload nupkg
+      uses: actions/upload-artifact@v3
+      with:
+        name: Trackr.nupkg
+        path: ./Packages/dotnet/Trackr/bin/Release/*.nupkg
+        
+    - name: Upload dll
+      uses: actions/upload-artifact@v3
+      with:
+        name: Trackr.dll
+        path: ./Packages/dotnet/Trackr/bin/Release/netstandard2.1/Trackr.dll
+  python:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Packages/python
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build
+
+    - name: Build
+      run: python -m build
+      
+    - name: Upload whl
+      uses: actions/upload-artifact@v3
+      with:
+        name: umtrackr.whl
+        path: ./Packages/python/dist/*.whl
+  rust:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+    - uses: actions-rs/cargo@v1
+      with:
+        command: build
+        args: --release --manifest-path ./Packages/rust/Cargo.toml
+      
+    - name: Upload archive
+      uses: actions/upload-artifact@v3
+      with:
+        name: libumtrackr.rlib
+        path: ./Packages/rust/target/release/libumtrackr.rlib
