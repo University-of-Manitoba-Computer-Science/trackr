@@ -11,18 +11,21 @@ on:
 jobs:
   arduino:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Packages/cpp-arduino/
 
     steps:
     - uses: actions/checkout@v2
 
     - name: Zip archive
-      run: zip -r trackr-arduino.zip ./Packages/cpp-arduino/Trackr
+      run: zip -r trackr-arduino.zip ./Trackr
       
     - name: Upload archive
       uses: actions/upload-artifact@v3
       with:
         name: trackr-arduino
-        path: ./Packages/cpp-arduino/trackr-arduino.zip
+        path: ./trackr-arduino.zip
   cpp:
     runs-on: ubuntu-latest
     defaults:
