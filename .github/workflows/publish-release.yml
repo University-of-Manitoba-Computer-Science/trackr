@@ -132,6 +132,7 @@ jobs:
         name: libumtrackr.rlib
         path: ./Packages/rust/target/release/libumtrackr.rlib
   publish-release:
+    needs: [arduino, cpp, bash, dotnet, python, rust]
     runs-on: ubuntu-latest
 
     steps:
