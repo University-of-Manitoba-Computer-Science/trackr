@@ -1,0 +1,27 @@
+name: C++ Build
+
+on:
+  release:
+    types: [published]
+  pull_request:
+    branches:
+    - master
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Packages/cpp/
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      run: make libs
+      
+    - name: Upload archive
+      uses: actions/upload-artifact@v3
+      with:
+        name: trackr.a
+        path: ./Packages/cpp/lib/trackr.a
