@@ -14,12 +14,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Zip archive
+      run: zip -r trackr-arduino.zip ./Packages/cpp-arduino/Trackr
       
     - name: Upload archive
       uses: actions/upload-artifact@v3
       with:
         name: trackr-arduino
-        path: ./Packages/cpp-arduino/
+        path: ./Packages/cpp-arduino/trackr-arduino.zip
   cpp:
     runs-on: ubuntu-latest
     defaults:
@@ -139,5 +142,5 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v3
 
-      - name: Display structure of downloaded files
+      - name: Zip 
         run: ls -R
