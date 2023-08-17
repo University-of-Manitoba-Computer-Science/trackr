@@ -25,7 +25,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: trackr-arduino
-        path: ./trackr-arduino.zip
+        path: ./Packages/cpp-arduino/trackr-arduino.zip
   cpp:
     runs-on: ubuntu-latest
     defaults:
