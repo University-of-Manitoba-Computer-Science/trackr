@@ -15,7 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\..\..\Downloads\trackr.png">
+    <None Include="trackr.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
