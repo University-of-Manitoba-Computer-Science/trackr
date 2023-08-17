@@ -35,10 +35,10 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Trackr.nupkg
-        path: bin/Release/*.nupkg
+        path: ./Packages/dotnet/Trackr/bin/Release/*.nupkg
         
     - name: Upload dll
       uses: actions/upload-artifact@v3
       with:
         name: Trackr.dll
-        path: bin/Release/netstandard2.1/Trackr.dll
+        path: ./Packages/dotnet/Trackr/bin/Release/netstandard2.1/Trackr.dll
