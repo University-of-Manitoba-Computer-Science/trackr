@@ -1,0 +1,32 @@
+name: Python Build
+
+on:
+  release:
+    types: [published]
+  pull_request:
+    branches:
+    - master
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Packages/python
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    - name: Build
+      run: python -m build
+      
+    - name: Upload whl
+      uses: actions/upload-artifact@v3
+      with:
+        name: umtrackr.whl
+        path: ./Packages/python/dist/*.whl
