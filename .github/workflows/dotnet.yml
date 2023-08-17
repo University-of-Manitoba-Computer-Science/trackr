@@ -1,0 +1,44 @@
+name: .NET Build
+
+on:
+  release:
+    types: [published]
+  pull_request:
+    branches:
+    - master
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Packages/dotnet/Trackr/
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.2.0
+
+    - name: Restore dependencies
+      run: nuget restore
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 7
+
+    - name: Build
+      run: dotnet build -c Release --no-restore
+      
+    - name: Upload nupkg
+      uses: actions/upload-artifact@v3
+      with:
+        name: Trackr.nupkg
+        path: bin/Release/*.nupkg
+        
+    - name: Upload dll
+      uses: actions/upload-artifact@v3
+      with:
+        name: Trackr.dll
+        path: bin/Release/netstandard2.1/Trackr.dll
