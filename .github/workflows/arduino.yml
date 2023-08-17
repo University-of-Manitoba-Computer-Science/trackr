@@ -20,5 +20,5 @@ jobs:
     - name: Upload archive
       uses: actions/upload-artifact@v3
       with:
-        name: trackr-arduino.zip
-        path: ./Packages/cpp-arduino/Trackr
+        name: trackr-arduino
+        path: ./Packages/cpp-arduino/
