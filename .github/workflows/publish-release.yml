@@ -149,7 +149,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            trackr-arduino.zip/*
+            trackr-arduino/*
             trackr.a/*
             trackr.sh/*
             Trackr.nupkg/*
