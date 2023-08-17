@@ -2,11 +2,8 @@ name: Publish Release
 
 on:
   push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+    tags:
+      - "v*.*.*"
     
 jobs:
   arduino:
@@ -156,5 +153,4 @@ jobs:
             Trackr.dll/*
             umtrackr.whl/*
             libumtrackr.rlib/*
-          tag_name: "test-1"
           draft: true
