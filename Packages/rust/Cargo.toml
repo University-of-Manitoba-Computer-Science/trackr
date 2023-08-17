@@ -1,10 +1,10 @@
 [package]
-name = "rust"
-version = "0.1.0"
+name = "umtrackr"
+version = "1.0.0"
 edition = "2021"
 
 [lib]
-name = "rust"
+name = "umtrackr"
 crate-type = ["rlib"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
