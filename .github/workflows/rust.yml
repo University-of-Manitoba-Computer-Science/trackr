@@ -1,4 +1,4 @@
-name: Arduino Build
+name: Rust Build
 
 on:
   release:
@@ -25,5 +25,5 @@ jobs:
     - name: Upload archive
       uses: actions/upload-artifact@v3
       with:
-        name: libtrackr.rlib
-        path: ./Packages/rust/target/release/libtrackr.rlib
+        name: libumtrackr.rlib
+        path: ./Packages/rust/target/release/libumtrackr.rlib
