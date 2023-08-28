@@ -1,6 +1,6 @@
 {
   "name": "umtrackr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Clientside JS library to push and pull data from Trackr server.",
   "main": "index.js",
   "scripts": {
