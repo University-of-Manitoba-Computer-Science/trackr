@@ -35,7 +35,7 @@ jobs:
     - name: Upload archive
       uses: actions/upload-artifact@v3
       with:
-        name: trackr-arduino
+        name: umtrackr-js
         path: ./Packages/javascript/umtrackr-js.zip
   cpp:
     runs-on: ubuntu-latest
