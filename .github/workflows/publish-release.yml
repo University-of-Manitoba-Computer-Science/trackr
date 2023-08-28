@@ -23,6 +23,23 @@ jobs:
       with:
         name: trackr-arduino
         path: ./Packages/cpp-arduino/trackr-arduino.zip
+  javascript:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Packages/javascript/
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Zip archive
+      run: zip -r umtrackr-js.zip .
+      
+    - name: Upload archive
+      uses: actions/upload-artifact@v3
+      with:
+        name: trackr-arduino
+        path: ./Packages/javascript/umtrackr-js.zip
   cpp:
     runs-on: ubuntu-latest
     defaults:
@@ -147,6 +164,7 @@ jobs:
         with:
           files: |
             trackr-arduino/*
+            umtrackr-js/*
             trackr.a/*
             trackr.sh/*
             Trackr.nupkg/*
